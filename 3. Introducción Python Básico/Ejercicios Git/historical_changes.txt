@@ -1,0 +1,11 @@
+Historial de Cambios - Repositorio Ejercicios-Lyfter
+
+1. Commit: 51bec51b8113bc048d9242e55b64e121d3e831cd (Fecha: 25 Sep 2026)
+- Mensaje: Uploading Firts Exercises of Git
+- Qué cambió: Se añadieron y subieron los archivos correspondientes a los primeros ejercicios de Git en la rama `past-exercises`.
+- Por qué se hizo: Para registrar, versionar y respaldar el avance inicial de las prácticas de Git dentro del repositorio remoto.
+
+2. Commit: c76924e8e05bf04661dfa52aaae5cb432dce7184 (Fecha: 25 Sep 2026)
+- Mensaje: Initial commit
+- Qué cambió: Se creó la estructura base del repositorio.
+- Por qué se hizo: Para inicializar el proyecto y establecer el punto de partida oficial en la rama principal (`main`).
