@@ -1,35 +1,27 @@
 import json
 
-path = "Pokemon.json"
 
-def cargar_pokemons(ruta):
-   
+def load_pokemons(filepath):
     try:
-        with open(ruta, 'r', encoding='utf-8') as files:
+        with open(filepath, 'r', encoding='utf-8') as files:
             return json.load(files)
     except FileNotFoundError:
-        # Si el archivo no existe, retorna una lista vacía
         return []
 
-def capturar_nuevo_pokemon():
-
+def get_new_pokemon():
     print("\nIngresa los datos del nuevo Pokémon:")
     name = input("Nombre: ")
     pokemon_type = input("Tipo (ej. Water, Grass): ")
     level = int(input("Nivel (número entero): "))
     weight_kg = float(input("Peso en kg (número decimal): "))
     
-
     is_shiny = input("¿Es shiny? (s/n): ").strip().lower() == 's'
     
-  
     held_item_input = input("Objeto equipado (deja en blanco si no tiene): ").strip()
     held_item = held_item_input if held_item_input else None
     
-
     skills = [skill.strip() for skill in input("Habilidades (separadas por comas): ").split(',')]
     
- 
     print("\n--- Ingresa las estadísticas ---")
     stats = {
         "hp": int(input("HP: ")),
@@ -40,7 +32,6 @@ def capturar_nuevo_pokemon():
         "speed": int(input("Velocidad: "))
     }
     
-
     return {
         "name": name,
         "type": pokemon_type,
@@ -52,29 +43,22 @@ def capturar_nuevo_pokemon():
         "stats": stats
     }
 
-def guardar_pokemons(ruta, pokemons):
-
-    with open(ruta, 'w', encoding='utf-8') as files:
+def save_pokemons(filepath, pokemons):
+    with open(filepath, 'w', encoding='utf-8') as files:
         json.dump(pokemons, files, indent=4, ensure_ascii=False)
 
 def main():
-
-
-    pokemons = cargar_pokemons(path)
+    path = "Pokemon.json"
+    pokemons = load_pokemons(path)  # ¡Corregido! Ahora se pasa el path como argumento
     print(f"--- Se cargaron {len(pokemons)} Pokémon(es) del archivo ---")
     
-
-    nuevo_pokemon = capturar_nuevo_pokemon()
-    pokemons.append(nuevo_pokemon)
+    new_pokemon = get_new_pokemon()  # Variable en inglés
+    pokemons.append(new_pokemon)
     
-
-    guardar_pokemons(path, pokemons)
+    save_pokemons(path, pokemons)
     print(f"\n¡Éxito! El Pokémon ha sido agregado y guardado correctamente en '{path}'.")
 
 
 if __name__ == "__main__":
     main()
-
-
-
 
