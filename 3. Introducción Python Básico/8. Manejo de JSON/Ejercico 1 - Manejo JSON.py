@@ -49,10 +49,10 @@ def save_pokemons(filepath, pokemons):
 
 def main():
     path = "Pokemon.json"
-    pokemons = load_pokemons(path)  # ¡Corregido! Ahora se pasa el path como argumento
+    pokemons = load_pokemons(path)  
     print(f"--- Se cargaron {len(pokemons)} Pokémon(es) del archivo ---")
     
-    new_pokemon = get_new_pokemon()  # Variable en inglés
+    new_pokemon = get_new_pokemon()  
     pokemons.append(new_pokemon)
     
     save_pokemons(path, pokemons)
