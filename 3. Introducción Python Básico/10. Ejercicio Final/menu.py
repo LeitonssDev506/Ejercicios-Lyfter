@@ -109,42 +109,50 @@ def display_overall_average(students_list):
     
 def display_table_students_who_failed(existing_students):
 
-
+    failed_student_found = False
         
     if not existing_students:
         print("\n The DB don't have students yet!.")
+
+    
+    
     else:
         print("\n" + "=" * 88)
         print(f"{'Full Name':<25} | {'Section':<8} | {'Spanish':<8} | {'English':<8} | {'Social Studies':<14} | {'Science':<8}")
         print("=" * 88)
 
         for student in existing_students:
-            fn = student.get("Fullname")
-            sec = student.get("Section")
+            full_name = student.get("Fullname")
+            section = student.get("Section")
+
+            spanish_grade = float(student.get("Spanish_grade", 0))
+            english_grade = float(student.get("English_grade", 0))
+            social_grade = float(student.get("Social_Studies", 0))
+            science_grade = float(student.get("Science_grade", 0))
+
+
             
-            s = float(student.get("Spanish_grade", 0))
-            e = float(student.get("English_grade", 0))
-            se = float(student.get("Social_Studies", 0))
-            sc = float(student.get("Science_grade", 0))
-            
-            if s < 60 or e < 60 or se < 60 or sc < 60: 
-                grade_columns = []
+            if (spanish_grade < 60 or english_grade < 60 or social_grade < 60 or science_grade < 60 ):
                 
-                for grade in [s, e, se, sc]:
+                failed_student_found = True
+                grade_columns = []
+                for grade in [spanish_grade, english_grade, social_grade, science_grade]:
                     if grade < 60:
                         grade_columns.append(f"{grade:.2f}")
                     else:
                         grade_columns.append("")
-
                 print(
-                    f"{fn:<25} | "
-                    f"{sec:<8} | "
+                    f"{full_name:<25} | "
+                    f"{section:<8} | "
                     f"{grade_columns[0]:<8} | "
                     f"{grade_columns[1]:<8} | "
                     f"{grade_columns[2]:<14} | "
                     f"{grade_columns[3]:<8}"
                 )
                 print("-" * 88)
+
+            if not failed_student_found:
+                print("\nThere are no students who failed.")
 
         print("=" * 88)
                 

@@ -2,7 +2,7 @@ import csv
 import os
 
 
-def load_bd_student_system(filepath):
+def load_student_data(filepath):
     try:
         with open(filepath, 'r', encoding='utf-8') as file:
             reader = csv.DictReader(file)
@@ -13,11 +13,11 @@ def load_bd_student_system(filepath):
     except FileNotFoundError:
         print('File do not exits')
         print("\nThere is no previously exported CSV file.")
-        return []
+        return None
 
     except Exception as e:
         print(f"\nAn error occurred while importing the CSV file: {e}")
-        return []
+        return None
 
 
 
