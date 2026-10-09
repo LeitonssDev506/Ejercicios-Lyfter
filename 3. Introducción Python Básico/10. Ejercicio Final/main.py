@@ -1,6 +1,6 @@
 from menu import display_menu , get_menu_option, display_students_table, display_top3_table, display_table_students_who_failed,  display_overall_average
 from actions import add_students , delete_students
-from data import load_bd_student_system, save_students_to_file
+from data import load_student_data, save_students_to_file
 
 
 
@@ -40,7 +40,9 @@ def main():
             case 7:
                 save_students_to_file(students_list,filepath)
             case 8:
-                students_list = load_bd_student_system(filepath)
+                imported_students = load_student_data(filepath)
+                if imported_students is not None:
+                    students_list = imported_students
             case 9:
 
                 print("\nClosing system. Goodbye!")

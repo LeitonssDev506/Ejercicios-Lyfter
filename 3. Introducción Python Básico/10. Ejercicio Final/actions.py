@@ -108,7 +108,6 @@ def add_students(existing_students):
             print("The students already exits, please try again with other name and section")
             print("\n")
             continue
-            print("\n")
         break
 
 
@@ -204,15 +203,6 @@ def delete_students(existing_students):
     print("\nThe student was removed successfully.")
 
     return existing_students
-
-
-
-
-    
-
-
-
-    1
 
 
 
