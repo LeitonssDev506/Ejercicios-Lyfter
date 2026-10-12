@@ -34,4 +34,4 @@ try:
     print(rectangle.get_perimeter())
 
 except ValueError as error:
-    print(f"Error: {error}")
+    print(f"{error}")
